@@ -1,1 +1,1 @@
-# gb_modern_js
+# Modern JavaScript

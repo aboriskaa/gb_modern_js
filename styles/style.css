@@ -1,0 +1,22 @@
+.container {
+    margin: 0 auto;
+    width: 800px;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: top;
+    padding-top: 10px;
+}
+
+.products-item {
+    border: solid 1px black;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.products-item img {
+    width: 200px;
+}
