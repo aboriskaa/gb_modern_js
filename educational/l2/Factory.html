@@ -1,0 +1,78 @@
+<script>
+    class Car{
+        constructor(title,price){
+            this.title = title;
+            this.price = price;
+        }
+    }
+    
+    class Factory{
+        constructor(titleFactory){
+            this.titleFactory = titleFactory;
+        }
+        
+        /**
+        * В этом методе создаем авто с определенным названием.
+        * Цена случайная, то есть завод сам устанавливает цену машины
+        */
+        createCar(title){
+            console.log(`Сборка авто ${title} на заводе ${this.titleFactory} началась`);
+            const car = new Car(title,parseInt(Math.random() * 4000 + 1000));
+            return car;
+        }
+    }
+    
+    class Order{
+        /**
+        *@param countCars - количество авто, которое нужно изготовить
+        *@param factory - объект завод
+        *@param models - массив моделей
+        */
+        constructor(countCars,factory,models,diller){
+            this.countCars = countCars;
+            this.factory = factory;
+            this.models = models;
+            this.diller = diller;
+            this.cars = [];//фура для погрузки автомобилей
+            this.sumOrder = 0;//сумма заказа
+            this.initOrder();//в этом методе заполним массив cars
+            this.showInfo();
+        }
+        initOrder(){
+            for(let i = 0;i < this.countCars;i++){
+                this.cars.push(
+                    this.factory.createCar(this.models[parseInt(Math.random() * this.models.length)])
+                );
+                this.sumOrder += this.cars[i].price;
+            }
+        }
+        
+        showInfo(){
+            this.cars.forEach(car => console.log(`Автомобиль ${car.title} стоит ${car.price}`));
+            console.log(`Общая сумма всех авто составляет ${this.sumOrder}`)
+        }
+    }
+    
+    class Diller{
+        constructor(titleDiller,countYears){
+            this.titleDiller = titleDiller;
+            this.countYears = countYears;
+        }
+    }
+    
+    class Main{
+        static run(){
+            const COUNT = parseInt(Math.random() * 20 + 10);//количество авто в заказе
+            const MODELS = ['Ларгус','Веста','Гранта'];
+            const FACTORY = new Factory('ВАЗ');
+            const DILLER = new Diller('Элвис',20);
+            const ORDER = new Order(COUNT,FACTORY,MODELS,DILLER);
+         }
+    }
+    
+    Main.run();
+    
+    
+    
+    
+</script>

@@ -1,0 +1,23 @@
+.container {
+    width: 600px;
+    margin: 0 auto;
+}
+
+.container_form {
+    width: 300px;
+    margin: 0 auto;
+}
+
+button {
+    display: block;
+    margin: 10px auto;
+}
+
+.info {
+    width: 300px;
+    height: 50px;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 18px;
+}
