@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./styles/burger.css">
+    <title>Burger</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="info">Вы можете выбрать ингридиенты и рассчитать стоимость Вашей булки. =))</div>
+        <div class="container_form">
+            <form id="burger-sum" action="/calculate/" method="POST">
+                <div>
+                    <fieldset>
+                        <legend>Burger size:</legend>
+                        <div>
+                            <input type="radio" id="max" name="burgerSize" value="max" checked>
+                            <label for="max">Big burger (100 rur, 40 cal)</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="min" name="burgerSize" value="min">
+                            <label for="min">Small burger (50 rur, 20 cal)</label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div>
+                    <fieldset>
+                        <legend>Burger stuffing:</legend>
+                        <div>
+                            <input type="radio" id="cheese" name="burgerStuffing" value="cheese" checked>
+                            <label for="cheese">Cheese (10 rur, 20 cal)</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="salad" name="burgerStuffing" value="salad">
+                            <label for="salad">Salad (20 rur, 5 cal)</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="potato" name="burgerStuffing" value="potato">
+                            <label for="potato">Potato (15 rur, 10 cal)</label>
+                        </div>
+                    </fieldset>
+                </div>
+                <div>
+                    <fieldset>
+                        <legend>Choose your topping:</legend>
+
+                        <div>
+                            <input type="checkbox" id="spice" name="spice" checked>
+                            <label for="spice">Spice (15 rur, 0 cal)</label>
+                        </div>
+
+                        <div>
+                            <input type="checkbox" id="mayo" name="mayo">
+                            <label for="mayo">Mayo (20 rur, 5 cal)</label>
+                        </div>
+                    </fieldset>
+                    <button type="submit">Calculate</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <script src="./js/burger.js"></script>
+</body>
+
+</html>
