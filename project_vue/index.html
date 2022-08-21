@@ -12,56 +12,31 @@
 <body>
     <script src="https://unpkg.com/vue@3"></script>
 
+
     <div id="app" class="container">
-        <header class="header">
-            <div>E-SHOP</div>
-            <div class="cart">
-                <form action="#" class="search-form" @submit.prevent="filter">
-                    <input type="text" class="search-field" v-model="userSearch">
-                    <button class="btn-search" type="submit">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </form>
-                <button class="btn-cart" type="button" @click="show = !show">Cart</button>
-
-                <div class="cart-block" v-show="show">
-                    <p v-if="!cart.length">Cart is empty</p>
-                    <div class="cart-item" v-for="item of cart" :key="item.id_product">
-                        <div class=" product-bio">
-                            <img :src="imgCatalog" alt="Some image">
-                            <div class="product-desc">
-                                <p class="product-title">{{item.product_name}}</p>
-                                <p class="product-quantity">{{item.quantity}}</p>
-                                <p class="product-single-price">{{item.price}}</p>
-                            </div>
-                        </div>
-                        <div class="right-block">
-                            <p class="product-price">{{item.quantity * item.price}}</p>
-                            <button class="del-btn" @click="removeProduct(item)">&times;</button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </header>
-        <main>
-            <div class="products">
-                <div class="product-item" v-for="product of filtered" :key="product.id_product">
-                    <img :src="imgCatalog" alt="some img">
-                    <div class="desс">
-                        <h3>{{product.product_name}}</h3>
-                        <p>{{product.price}}</p>
-                        <button class="buy-btn" @click="addProduct(product)">Add to cart</button>
-                    </div>
-                </div>
-        </main>
+        <p v-if="error">API connection error! {{errorMessage}}</p>
+        <div v-else>
+            <header class="header">
+                <div>E-commerce at Vue</div>
+                <cart-component :cart="cart" :img="imgCart"></cart-component>
+            </header>
+            <main>
+                <products-component :filtered="filtered" :img-catalog="imgCatalog"></products-component>
+            </main>
+        </div>
     </div>
     <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
         integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP"
         crossorigin="anonymous"></script>
 
+
     <script src="./js/main.js"></script>
+    <script src="./js/searchComponent.js"></script>
+    <script src="./js/cartComponent.js"></script>
+    <script src="./js/productsComponent.js"></script>
+    <script>eShop.mount('#app')</script>
+
+
 </body>
 
 </html>

@@ -2,7 +2,7 @@ const { createApp } = Vue;
 
 const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
 
-createApp({
+const eShop = createApp({
     data() {
         return {
             userSearch: '',
@@ -14,8 +14,10 @@ createApp({
             imgCatalog: 'https://cdn11.bigcommerce.com/s-jav5lin/images/stencil/1280x1280/products/149304/145936/No%20Image__42523.1550771548.jpg',
             userSearch: '',
             show: false,
-            imgCart: 'https://via.placeholder.com/50x100',
-            imgProduct: 'https://via.placeholder.com/200x150'
+            imgCart: 'https://via.placeholder.com/100x50',
+            error: false,
+            errorMessage: ''
+            // imgProduct: 'https://via.placeholder.com/200x150'
         }
     },
     methods: {
@@ -32,6 +34,8 @@ createApp({
             return fetch(url)
                 .then(result => result.json())
                 .catch(error => {
+                    this.errorMessage = error;
+                    this.error = true;
                     console.log(error);
                 });
         },
@@ -88,9 +92,7 @@ createApp({
                 }
             })
     }
-}).mount('#app')
-
-
+})
 
 // const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
 
